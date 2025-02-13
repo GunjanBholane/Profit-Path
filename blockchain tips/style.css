@@ -1,0 +1,109 @@
+/* Apply a universal box-sizing to all elements */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style for the body */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg,  #e8700d19,  #e8700d3a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e8700d93;
+    color: #333;
+}
+
+/* Style for the container */
+.container {
+    background: linear-gradient(145deg, #ffffff, #f1f1f1);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 1000px;
+    height: 500px;
+    text-align: center;
+    border: 2px solid #d4af37; /* Golden border */
+    position: relative;
+}
+
+/* Style for the heading */
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 2em;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the input section */
+.input-section {
+    margin-bottom: 20px;
+}
+
+/* Style for input and select elements */
+input, select {
+    width: calc(100% - 22px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #d4af37; /* Golden border */
+    border-radius: 8px;
+    background: linear-gradient(145deg, #ffffff, #e0e0e0);
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1), inset -2px -2px 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Style for buttons */
+button {
+    background-color: #d4af37; /* Golden color */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #b89b27; /* Darker gold */
+    transform: translateY(-2px);
+}
+
+/* Style for the tips section */
+.tips-section {
+    margin-top: 20px;
+    display: none;
+}
+
+/* Style for individual tip blocks */
+.tip-block {
+    background: linear-gradient(145deg, #ffffff, #f9f9f9);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #d4af37; /* Golden left border */
+}
+
+/* Add a shine effect to the container */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 80%);
+    border-radius: 15px;
+    pointer-events: none;
+    opacity: 0.5;
+    z-index: 0;
+}
+body{
+    background-color: #d4af379e;
+}
+

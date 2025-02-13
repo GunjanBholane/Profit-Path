@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner View</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f9;
+        }
+        img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+        button {
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0069d9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>All Submissions</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Document</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="dataTable">
+                <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function loadSubmissions() {
+            let submissions = JSON.parse(localStorage.getItem('submissions')) || [];
+            const dataTable = document.getElementById('dataTable');
+            dataTable.innerHTML = '';
+
+            submissions.forEach((submission, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${submission.name}</td>
+                    <td>${submission.document}</td>
+                    <td><img src="${submission.image}" alt="User Image"></td>
+                    <td>
+                        <button onclick="downloadData(${index})">Download Data</button>
+                        <button onclick="downloadImage(${index})">Download Image</button>
+                        <button onclick="deleteSubmission(${index})">Delete</button>
+                    </td>
+                `;
+                dataTable.appendChild(row);
+            });
+        }
+
+        function downloadData(index) {
+    let submissions = JSON.parse(localStorage.getItem('submissions')) || [];
+    const submission = submissions[index];
+    const data = `Name: ${submission.name}\nEmail: ${submission.email}\nPhone: ${submission.phone}\nAddress: ${submission.address}\nBusiness Idea: ${submission.businessIdea}\nDocument: ${submission.document}\nImage Name: ${submission.document}`;
+
+    const blob = new Blob([data], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `submission_${index}_data.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+
+        function downloadImage(index) {
+            let submissions = JSON.parse(localStorage.getItem('submissions')) || [];
+            const submission = submissions[index];
+            const imageUrl = submission.image;
+
+            const a = document.createElement('a');
+            a.href = imageUrl;
+            a.download = `submission_${index}_image.jpg`; // Downloading the image from base64 data
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        function deleteSubmission(index) {
+            let submissions = JSON.parse(localStorage.getItem('submissions')) || [];
+            submissions.splice(index, 1); // Remove the submission at the given index
+            localStorage.setItem('submissions', JSON.stringify(submissions));
+            loadSubmissions(); // Reload the table
+        }
+
+        window.onload = loadSubmissions;
+    </script>
+
+</body>
+</html>

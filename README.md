@@ -13,8 +13,14 @@ Profit-Path is a comprehensive platform designed to help startups, small to medi
 - **Sustainability Tracker**: Monitors and reduces carbon footprints, promoting eco-conscious practices.
 - ![Alt text](images/3.jpg)
 - ![Alt text](images/1.jpg)
-- ![Alt text](images/3.jpg)
+- ![Alt text](images/2.jpg)
 - ![Alt text](images/4.jpg)
+- - ![Alt text](images/5.jpg)
+
+- ![Alt text](images/6.jpg)
+
+- ![Alt text](images/7.jpg)
+
 
 ## **How I built it**
 I utilized advanced technologies, including AI and machine learning, to develop personalized business growth insights and real-time analytics. My Minimum Viable Product (MVP) includes core features such as the idea exchange and profit tracking modules. I integrated cloud computing for scalable and reliable performance.

@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(119, 136, 153, 0.467);
+    padding: 20px;
+}
+
+.category {
+    display: none;
+    margin-top: 20px;
+}
+
+.category h3 {
+    color: #333;
+}
+
+.buttons {
+    margin-bottom: 20px;
+    display: flex;      /* Use flexbox to control the button layout */
+    flex-wrap: wrap;    /* Allows the buttons to wrap to the next line */
+    gap: 10px;          /* Adds space between buttons */
+}
+
+.buttons button {
+    padding: 20px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    flex-grow: 1;       /* Make buttons grow evenly in size */
+    min-width: 150px;   /* Minimum width to prevent overlapping */
+    text-align: center; /* Centers the text inside the button */
+}
+
+.buttons button:hover {
+    background-color: #0056b3;
+}
+.body{
+    background-color: lightslategray;
+}

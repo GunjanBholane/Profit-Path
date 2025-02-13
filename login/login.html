@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <label for="username">Username (Email):</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <p id="message"></p>
+        <!-- The button to visit owner page, initially hidden -->
+        <button id="ownerPageBtn" style="display: none;" onclick="visitOwnerPage()">Visit Owner Page</button>
+    </div>
+
+    <script>
+        // Function to handle redirection to gg.com
+        function visitOwnerPage() {
+            window.location.href = 'file:///D:/xblog/devpost/startup/owner.html'; // Redirects to gg.com
+        }
+
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Check if username is "gg@gmail.com" and password is "344"
+            if (username === 'g123@gmail.com' && password === 'Owner@5544') {
+                // Display a success message
+                document.getElementById('message').textContent = 'Login successful!';
+
+                // Show the "Visit Owner Page" button
+                document.getElementById('ownerPageBtn').style.display = 'inline';
+
+                // Reset the form
+                document.getElementById('signupForm').reset();
+            } else {
+                document.getElementById('message').textContent = 'Invalid username or password!';
+                document.getElementById('ownerPageBtn').style.display = 'none'; // Hide the button if login fails
+            }
+        });
+    </script>
+</body>
+</html>
